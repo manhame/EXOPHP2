@@ -1,16 +1,16 @@
 <?php
 
 $capitales = [
-    ["France" => "Paris","lien"],
-    ["Allemagne" => "Berlin", "lien1"],
-    ["USA" => "Washington", "lien2"],
-    ["Italie" => "Rome", "lien3"],
+    "France" => "Paris",
+    "Allemagne" => "Berlin",
+    "USA" => "washington",
+    "Italie" => "Rome"
 ];
 
 echo afficherTableHTML ($capitales);
 
 function afficherTableHTML ($capitales) {
-    a1sort($capitales);
+    asort($capitales);
    $result = "<table border=1>
                 <thead>
                     <tr>
@@ -21,11 +21,11 @@ function afficherTableHTML ($capitales) {
                 </thead>
             <tbody>";
 
-    foreach ($capitales as ($pays => $capitale, $lien)) {
+    foreach ($capitales as $pays => $capitale) {
         $result .= "<tr>
                         <td>".mb_strtoupper($pays)."</td>
-                        <td>$capitale</td>
-                        <td>$lien<td>
+                        <td>".ucfirst($capitale)."</td>
+                        <td><a href='https://fr.wikipedia.org/wiki/$capitale' target='_blank'>Lien</a></td>
                     </tr>";
     }
    

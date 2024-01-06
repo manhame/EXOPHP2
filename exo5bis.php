@@ -5,25 +5,22 @@
 <h2>Résultat</h2>
 
 <form method="post" action="">
-   <input type="text" name="nom" /><br />;
-   <input type="text" name="prenom" /><br />;
-   <input type="text" name="ville" /><br />;
-   <input type="submit" name="valider" value="Vérifier" />;
-</form>
+<label for='nom'> Nom : </label><br>
+   <input type="text" name="nom" /><br />
+<label for='prenom'> Prénom : </label><br>  
+   <input type="text" name="prenom" /><br />
+<label for='ville'> Ville : </label><br>
+   <input type="text" name="ville" /><br />
+</form><br>
 
 <?php
 
-$nomsinput = ["Nom","Prénom","Ville"];
-foreach ($nomsinput as $key) {
-    $result = 
-   " <form method="post" action="">
-        <input type="text" name="nom" /><br />;
-         <input type="text" name="prenom" /><br />;
-         <input type="text" name="ville" /><br />;
-         <input type="submit" name="valider" value="Vérifier" />;
-    </form>";
+$nomsInput = ["Nom","Prénom","Ville","Téléphone","Lieu de naissance"];
+
+$resultat =  "<form method='post' action=''>";
+foreach ($nomsInput as $coordonnee) {
+    $resultat .=  "<label for='$coordonnee'> $coordonnee : </label><br>
+        <input type='text' name='$coordonnee' id='$coordonnee' placeholder='Saisissez : $coordonnee' /><br>";
 }
-
-echo afficherinputs $nomsinput;
-    return $result;
-
+$resultat .= "</form>";
+echo $resultat;
