@@ -5,8 +5,8 @@
 <?php
 
 class Voiture {
-  private string $_marque;
-  private string $_modele;
+  protected string $_marque;
+  protected string $_modele;
 
     public function __construct (string $marque, string $modele){
         $this -> _marque = $marque;
@@ -27,6 +27,10 @@ class Voiture {
     public function setModele (string $modele) {
         $this -> _modele = $modele;
     }
+
+    public function getInfos() {
+        return $this->_marque." ".$this->_modele;
+    }
 }
 
 class VoitureElec extends Voiture {
@@ -44,6 +48,11 @@ class VoitureElec extends Voiture {
     public function setAutonomie(int $autonomie) {
         $this -> _autonomie= $autonomie;        
     }
+
+    public function getInfos() {
+        // return $this->_marque." ".$this->_modele." / autonomie : $this->_autonomie km";
+        return parent::getInfos()." / autonomie : $this->_autonomie km";
+    }
 }
 $v1 = new Voiture ("Peugeot","408");
 $ve1 = new VoitureElec ("BMW","i3",150);
@@ -53,3 +62,6 @@ echo $v1 -> getModele()."<br>";
 echo $ve1 -> getMarque()." ";
 echo $ve1 -> getModele()." ";
 echo $ve1 -> getAutonomie();
+
+echo $v1->getInfos();
+echo $ve1->getInfos();
