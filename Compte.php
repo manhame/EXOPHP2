@@ -6,12 +6,14 @@ class Compte {
     private int $_soldeInitial;
     private string $_deviseMonetaire;
     private string $_titulaireUnique;
+    private static $_nbComptes;
 
 public function __construct($libelle,$soldeInitial,$deviseMonetaire,$titulaireUnique) {
     $this -> _libelle=$libelle;
     $this -> _soldeInitial=0;
     $this -> _deviseMonetaire=$_deviseMonetaire;
     $this -> _titulaireUnique=$_titulaireUnique;
+    self::$_nbComptes++;
 }
 
 public function getLibelle () {

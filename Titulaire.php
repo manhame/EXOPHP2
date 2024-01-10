@@ -7,14 +7,14 @@ class Titulaire {
     private string $_nom;
     private string $_dateNaissance;
     private string $_ville;
-    ///private array $_comptes; ?
+    private array $_comptes;
 
-public function __construct($prenom, $nom, $dateNaissance, $ville) {
+public function __construct($prenom, $nom, $dateNaissance, $ville, $comptes) {
     $this -> _prenom= $prenom;
     $this -> _nom= $nom;
     $this -> _dateNaissance= $dateNaissance;
     $this -> _ville= $ville;
-    //$this -> _comptes= [1,2,3] ?
+    $this -> _comptes= array();
 } 
 
 public function getPrenom() {
@@ -29,6 +29,9 @@ public function getDateNaissance() {
 public function getVille() {
     return $this -> _ville;
 }
+public function getComptes() {
+    return $this -> _comptes;
+}
 public function setPrenom (string $prenom) {
     $this -> _prenom= $prenom;
 }
@@ -40,6 +43,9 @@ public function setDateNaissance (string $dateNaissance) {
 }
 public function setVille (string $ville) {
     $this -> _ville= $ville;
+}
+public function setComptes (array $comptes) {
+    $this -> _comptes= $comptes;
 }
 public function getInfos() {
     return $this ->_prenom." ".$this ->_nom." ".$this ->_(date_diff).$this ->_ville."<br>";
