@@ -5,11 +5,11 @@ class Compte {
     private string $_libelle;
     private int $_soldeInitial;
     private string $_deviseMonetaire;
-    private int $_titulaireUnique;
+    private string $_titulaireUnique;
 
-public function __construct($libelle,$_soldeInitial,$_deviseMonetaire,$_titulaireUnique) {
+public function __construct($libelle,$soldeInitial,$deviseMonetaire,$titulaireUnique) {
     $this -> _libelle=$libelle;
-    $this -> _soldeInitial=$_soldeInitial;
+    $this -> _soldeInitial=0;
     $this -> _deviseMonetaire=$_deviseMonetaire;
     $this -> _titulaireUnique=$_titulaireUnique;
 }
@@ -18,7 +18,7 @@ public function getLibelle () {
     return $this -> _libelle;
 }
 public function getSoldeInitial () {
-    return $this -> _soleInitial;
+    return $this -> _soldeInitial;
 }
 public function getDeviseMonetaire () {
     return $this -> _deviseMonetaire;
@@ -27,7 +27,7 @@ public function getTitulaireUnique () {
     return $this -> _titulaireUnique;
 }
 public function getInfos () {
-    return $this -> 
+    return $this ->_libelle." ".$this ->_soldeInitial." ".$this ->_deviseMonetaire." ".$this ->_titulaireUnique."<br>";
 }
 
 public function setLibelle (string $libelle) {
@@ -41,4 +41,14 @@ public function setDeviseMonetaire (string $deviseMonetaire) {
 }
 public function setTitulaireUnique (string $titulaireUnique) {
     $this -> _titulaireUnique= $titulaireUnique;
-}}
+}
+
+public function crediter($credit) {
+    return $this -> _soldeInitial += $credit
+}
+public function debiter($debit) {
+    return $this -> _soldeInitial -= $debit
+}
+//public function virer($virement) {
+    return $this -> 
+}

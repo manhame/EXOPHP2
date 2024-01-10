@@ -20,3 +20,14 @@ echo $l2 -> getInfos ()."<br>";
 echo $l3 -> getInfos ()."<br>";
 echo $l4 -> getInfos ();
 
+$t1 = new Titulaire ("Prénom", "Nom", "02/04/1968", "Ville");
+//echo $t1 -> getInfos()."<br>";
+echo $t1 -> getPrenom()." ".$t1 -> getNom()."<br>";
+echo $t1 -> getVille()."<br>";
+echo $t1 -> getDatediff()."<br>";
+
+$c1 = new Compte ("Libellé", "Solde","Devise" ,"Titulaire" );
+//echo $c1 -> getInfos()."<br>";
+echo $c1 -> getLibelle()." solde : ".$c1 -> getSoldeInitial()." ".$c1 -> getDeviseMonetaire()."<br>";
+echo $t1 -> getTitulaireUnique()."<br>";
+
